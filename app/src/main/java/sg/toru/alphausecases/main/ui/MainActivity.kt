@@ -8,12 +8,17 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
 import dagger.hilt.android.AndroidEntryPoint
 import sg.toru.alphausecases.R
+import sg.toru.alphausecases.di.network.ActivityDependency
 import sg.toru.alphausecases.main.vm.MainViewModel
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private val viewModel:MainViewModel by viewModels()
+
+    @Inject
+    lateinit var dep:ActivityDependency
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         Log.e(MainActivity::class.java.simpleName, "create()")
 
 
+        dep.test()
         viewModel.test()
     }
 }
