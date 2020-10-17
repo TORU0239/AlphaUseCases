@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="sg.toru.alphausecases">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".app.App"
         android:allowBackup="true"
@@ -11,22 +13,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AlphaUseCases">
-        <activity android:name="sg.toru.alphausecases.main.ui.MainActivity">
+        <activity android:name=".splash.ui.SplashActivity"
+            android:theme="@style/Theme.AlphaUseCases.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".main.ui.MainActivity"/>
 
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="${applicationId}.androidx-startup"
             android:exported="false"
             tools:node="merge">
-            <!-- This entry makes ExampleLoggerInitializer discoverable. -->
-            <meta-data  android:name="sg.toru.alphausecases.startup.AppInitializer"
+            <!-- This entry makes AppInitializer discoverable. -->
+            <meta-data
+                android:name="sg.toru.alphausecases.startup.AppInitializer"
                 android:value="androidx.startup" />
         </provider>
-
     </application>
+
 </manifest>
