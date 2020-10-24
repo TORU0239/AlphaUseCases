@@ -6,8 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.PagerSnapHelper
 import dagger.hilt.android.AndroidEntryPoint
 import sg.toru.alphausecases.databinding.FragmentMainBinding
+import sg.toru.alphausecases.main.model.InfoNearby
 import sg.toru.alphausecases.main.model.TransactionHistory
 import sg.toru.alphausecases.main.vm.MainViewModel
 
@@ -20,6 +23,10 @@ class MainFragment : Fragment() {
     private val viewModel: MainViewModel by viewModels()
 
 
+    private val infoNearAdapter:InfoNearbyAdapter by lazy {
+        InfoNearbyAdapter()
+    }
+
     private val transactionAdapter: TransactionAdapter by lazy {
         TransactionAdapter()
     }
@@ -30,6 +37,11 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentMainBinding.inflate(inflater, container, false)
+
+        PagerSnapHelper().attachToRecyclerView(binding.rcvMainWallet)
+        binding.rcvMainWallet.adapter = infoNearAdapter
+        binding.rcvMainTransaction.adapter = transactionAdapter
+
         return binding.root
     }
 
@@ -37,22 +49,11 @@ class MainFragment : Fragment() {
         view: View, savedInstanceState: Bundle?
     ) {
         super.onViewCreated(view, savedInstanceState)
-
-
-        binding.rcvMainTransaction.adapter = TransactionAdapter()
-        (binding.rcvMainTransaction.adapter as TransactionAdapter).submitList(createDummyTransactionData())
+        viewModel.paymentData.observe(viewLifecycleOwner, { wallet ->
+            infoNearAdapter.submitList(wallet.nearInfo)
+            transactionAdapter.submitList(wallet.transactionHistory)
+        })
     }
-
-    private fun createDummyTransactionData() = listOf(
-        TransactionHistory(0,"Payment", "FoodPanda Singapore",25.0F),
-        TransactionHistory(1,"Payment", "Habitat Coffee",10.0F),
-        TransactionHistory(2,"Top Up", "Using Visa 1234",50.0F),
-        TransactionHistory(3,"Payment", "YumCha Chinatown",30.50F),
-        TransactionHistory(4,"Payment", "Char Kway Teow",5.0F),
-
-
-    )
-
 
     override fun onDestroyView() {
         super.onDestroyView()

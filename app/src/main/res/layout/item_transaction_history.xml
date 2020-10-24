@@ -32,11 +32,12 @@
         android:id="@+id/imgTransactionArrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="6dp"
+        android:layout_marginEnd="4dp"
         android:src="@drawable/ic_keyboard_arrow_right_24px"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/viewDivider"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/txtTransactionOutlet"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.533" />
 
     <TextView
         android:id="@+id/txtTransactionAmount"

@@ -7,6 +7,7 @@
     app:cardCornerRadius="8dp"
     app:cardUseCompatPadding="true">
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/containerDealInfo"
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:padding="16dp"
