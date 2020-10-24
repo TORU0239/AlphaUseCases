@@ -17,8 +17,8 @@ class MainActivity : AppCompatActivity() {
 
     private val viewModel:MainViewModel by viewModels()
 
-    @Inject
-    lateinit var dep:ActivityDependency
+//    @Inject
+//    lateinit var dep:ActivityDependency
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +26,12 @@ class MainActivity : AppCompatActivity() {
         Log.e(MainActivity::class.java.simpleName, "create()")
 
 
-        dep.test()
-        viewModel.test()
+        supportFragmentManager.beginTransaction().replace(
+            R.id.mainFragmentContainer,
+            MainFragment.newInstance()
+        ).commit()
+
+//        dep.test()
+//        viewModel.test()
     }
 }

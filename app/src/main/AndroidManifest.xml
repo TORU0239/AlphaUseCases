@@ -20,7 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".main.ui.MainActivity"/>
+        <activity android:name=".main.ui.MainActivity"
+            android:theme="@style/Theme.AlphaUseCases.Main.NoActionBar"/>
 
         <provider
             android:name="androidx.startup.InitializationProvider"
