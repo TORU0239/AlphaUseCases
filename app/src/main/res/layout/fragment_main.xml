@@ -1,133 +1,250 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <!-- Top Bar -->
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/txtTopPayment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="56dp"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelineStart14dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_begin="14dp"/>
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelineEnd14dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_end="14dp"/>
-        <!-- Top Bar -->
         <TextView
-            android:id="@+id/txtTopPayment"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
             android:text="Payment"
             android:textStyle="bold"
             android:textSize="24sp"
             android:textColor="@color/black"
+            android:includeFontPadding="false"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="@id/guidelineStart14dp"/>
-
-        <!-- top card layout -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardMainWallet"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/gradient_card"
-            app:layout_constraintTop_toBottomOf="@id/txtTopPayment"
             app:layout_constraintStart_toStartOf="parent"
-            app:cardCornerRadius="10dp"
-            app:cardUseCompatPadding="true">
-            <androidx.constraintlayout.widget.ConstraintLayout
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:elevation="5dp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/txtTopPayment"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineStart14dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/gradient_card">
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="14dp"/>
 
-                <TextView
-                    android:id="@+id/txtTopWallet"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="10dp"
-                    android:text="GDG Wallet"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/holo_green_dark"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"/>
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineEnd14dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="14dp"/>
 
-                <TextView
-                    android:id="@+id/txtWalletCurrencyUnit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="10dp"
-                    android:text="SGD"
-                    android:textSize="13sp"
-                    android:includeFontPadding="false"
-                    app:layout_constraintTop_toBottomOf="@id/txtTopWallet"
-                    app:layout_constraintStart_toStartOf="parent"/>
-
-                <TextView
-                    android:id="@+id/txtWalletCurrentBalance"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="7dp"
-                    android:layout_marginStart="6dp"
-                    android:text="35.50"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:includeFontPadding="false"
-                    app:layout_constraintTop_toBottomOf="@id/txtTopWallet"
-                    app:layout_constraintStart_toEndOf="@id/txtWalletCurrencyUnit"/>
-
-                <Space
-                    android:id="@+id/spaceWallet"
+            <!-- top card layout -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardMainWallet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/gradient_card"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:cardCornerRadius="10dp"
+                app:cardUseCompatPadding="true">
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="34dp"
-                    app:layout_constraintTop_toBottomOf="@id/txtWalletCurrentBalance"/>
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/gradient_card">
 
-                <View
-                    android:id="@+id/viewDivWallet"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#0D000000"
-                    app:layout_constraintTop_toBottomOf="@id/spaceWallet"/>
+                    <TextView
+                        android:id="@+id/txtTopWallet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="10dp"
+                        android:text="GDG Wallet"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/holo_green_dark"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"/>
 
+                    <TextView
+                        android:id="@+id/txtWalletCurrencyUnit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="10dp"
+                        android:text="SGD"
+                        android:textSize="13sp"
+                        android:includeFontPadding="false"
+                        app:layout_constraintTop_toBottomOf="@id/txtTopWallet"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/txtWalletCurrentBalance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginStart="6dp"
+                        android:text="35.50"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:includeFontPadding="false"
+                        app:layout_constraintTop_toBottomOf="@id/txtTopWallet"
+                        app:layout_constraintStart_toEndOf="@id/txtWalletCurrencyUnit"/>
+
+                    <Space
+                        android:id="@+id/spaceWallet"
+                        android:layout_width="match_parent"
+                        android:layout_height="34dp"
+                        app:layout_constraintTop_toBottomOf="@id/txtWalletCurrentBalance"/>
+
+                    <View
+                        android:id="@+id/viewDivWallet"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#0D000000"
+                        app:layout_constraintTop_toBottomOf="@id/spaceWallet"/>
+
+                    <TextView
+                        android:id="@+id/txtWalletDetail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginStart="16dp"
+                        android:text="View Wallet Transaction Details"
+                        app:layout_constraintTop_toBottomOf="@id/viewDivWallet"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp"
+                        app:layout_constraintTop_toBottomOf="@id/txtWalletDetail"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/txtQuickActions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:includeFontPadding="false"
+                android:text="Quick Actions"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/cardMainWallet"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart14dp"/>
+            <LinearLayout
+                android:id="@+id/containerAction1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@id/txtQuickActions"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart14dp"
+                app:layout_constraintEnd_toStartOf="@+id/containerAction2"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintHorizontal_weight="1">
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/drawable_oval"/>
                 <TextView
-                    android:id="@+id/txtWalletDetail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginStart="16dp"
-                    android:text="View Wallet Transaction Details"
-                    app:layout_constraintTop_toBottomOf="@id/viewDivWallet"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                    android:text="Top Up"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
 
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="16dp"
-                    app:layout_constraintTop_toBottomOf="@id/txtWalletDetail"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
+            <LinearLayout
+                android:id="@+id/containerAction2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@id/txtQuickActions"
+                app:layout_constraintStart_toEndOf="@id/containerAction1"
+                app:layout_constraintEnd_toStartOf="@+id/containerAction3"
+                app:layout_constraintHorizontal_weight="1">
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/drawable_oval"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Scan"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/containerAction3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@id/txtQuickActions"
+                app:layout_constraintStart_toEndOf="@id/containerAction2"
+                app:layout_constraintEnd_toStartOf="@+id/containerAction4"
+                app:layout_constraintHorizontal_weight="1">
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/drawable_oval"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Send"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rcvMainWallet"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@id/cardMainWallet"
-            app:layout_constraintStart_toStartOf="parent"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.core.widget.NestedScrollView>
+            <LinearLayout
+                android:id="@+id/containerAction4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@id/txtQuickActions"
+                app:layout_constraintStart_toEndOf="@id/containerAction3"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd14dp"
+                app:layout_constraintHorizontal_weight="1">
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/drawable_oval"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Receive"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvMainWallet"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@id/containerAction1"
+                app:layout_constraintStart_toStartOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
