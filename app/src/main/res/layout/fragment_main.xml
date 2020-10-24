@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -9,6 +10,7 @@
         android:id="@+id/txtTopPayment"
         android:layout_width="match_parent"
         android:layout_height="56dp"
+        android:background="#BEBEEA"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
@@ -24,6 +26,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:elevation="5dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="14dp"
+            android:src="@drawable/ic_settings_24px"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -48,6 +59,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 app:layout_constraintGuide_end="14dp"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="#BEBEEA"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/spaceCard"/>
 
             <!-- top card layout -->
             <androidx.cardview.widget.CardView
@@ -109,7 +127,7 @@
                     <Space
                         android:id="@+id/spaceWallet"
                         android:layout_width="match_parent"
-                        android:layout_height="34dp"
+                        android:layout_height="50dp"
                         app:layout_constraintTop_toBottomOf="@id/txtWalletCurrentBalance"/>
 
                     <View
@@ -136,6 +154,11 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
+            <Space
+                android:id="@+id/spaceCard"
+                android:layout_width="match_parent"
+                android:layout_height="12dp"
+                app:layout_constraintTop_toBottomOf="@id/cardMainWallet"/>
 
             <TextView
                 android:id="@+id/txtQuickActions"
@@ -147,8 +170,9 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
-                app:layout_constraintTop_toBottomOf="@id/cardMainWallet"
+                app:layout_constraintTop_toBottomOf="@id/spaceCard"
                 app:layout_constraintStart_toStartOf="@id/guidelineStart14dp"/>
+
             <LinearLayout
                 android:id="@+id/containerAction1"
                 android:layout_width="0dp"
@@ -238,13 +262,40 @@
                     android:textColor="@color/black"/>
             </LinearLayout>
 
+            <View
+                android:id="@+id/viewDivAction"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="20dp"
+                android:background="#0D000000"
+                app:layout_constraintTop_toBottomOf="@id/containerAction1"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart14dp"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd14dp"/>
+
+
+            <TextView
+                android:id="@+id/txtDealsNearby"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:includeFontPadding="false"
+                android:text="Deals Near you"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/viewDivAction"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart14dp"/>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rcvMainWallet"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
-                app:layout_constraintTop_toBottomOf="@id/containerAction1"
-                app:layout_constraintStart_toStartOf="parent"/>
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/txtDealsNearby"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:listitem="@layout/item_deals_near_you"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
