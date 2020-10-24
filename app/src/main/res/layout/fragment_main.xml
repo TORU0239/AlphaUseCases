@@ -143,9 +143,18 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:layout_marginStart="16dp"
-                        android:text="View Wallet Transaction Details"
+                        android:text="View Wallet Details"
                         app:layout_constraintTop_toBottomOf="@id/viewDivWallet"
                         app:layout_constraintStart_toStartOf="parent"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="6dp"
+                        android:src="@drawable/ic_keyboard_arrow_right_24px"
+                        app:layout_constraintTop_toBottomOf="@id/viewDivWallet"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
 
                     <Space
                         android:layout_width="match_parent"
@@ -188,6 +197,8 @@
                 <ImageView
                     android:layout_width="70dp"
                     android:layout_height="70dp"
+                    android:padding="16dp"
+                    android:src="@drawable/ic_upgrade_24px"
                     android:background="@drawable/drawable_oval"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -210,6 +221,9 @@
                 <ImageView
                     android:layout_width="70dp"
                     android:layout_height="70dp"
+                    android:padding="16dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_qr_code_scanner_24px"
                     android:background="@drawable/drawable_oval"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -232,6 +246,10 @@
                 <ImageView
                     android:layout_width="70dp"
                     android:layout_height="70dp"
+                    android:padding="16dp"
+                    android:scaleType="fitXY"
+                    android:rotation="-45"
+                    android:src="@drawable/ic_send_24px"
                     android:background="@drawable/drawable_oval"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -254,6 +272,9 @@
                 <ImageView
                     android:layout_width="70dp"
                     android:layout_height="70dp"
+                    android:padding="16dp"
+                    android:rotation="135"
+                    android:src="@drawable/ic_send_24px"
                     android:background="@drawable/drawable_oval"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -271,7 +292,6 @@
                 app:layout_constraintTop_toBottomOf="@id/containerAction1"
                 app:layout_constraintStart_toStartOf="@id/guidelineStart14dp"
                 app:layout_constraintEnd_toEndOf="@id/guidelineEnd14dp"/>
-
 
             <TextView
                 android:id="@+id/txtDealsNearby"
@@ -296,6 +316,44 @@
                 app:layout_constraintTop_toBottomOf="@id/txtDealsNearby"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:listitem="@layout/item_deals_near_you"/>
+
+            <View
+                android:id="@+id/viewDivDeal"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="#0D000000"
+                app:layout_constraintTop_toBottomOf="@id/rcvMainWallet"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart14dp"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd14dp"/>
+
+            <TextView
+                android:id="@+id/txtRecentTransaction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:includeFontPadding="false"
+                android:text="Latest Transactions"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/viewDivDeal"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart14dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvMainTransaction"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/txtRecentTransaction"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart14dp"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd14dp"
+                tools:listitem="@layout/item_transaction_history"
+                tools:itemCount="5"/>
+
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
