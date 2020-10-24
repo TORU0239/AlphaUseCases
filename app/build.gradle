@@ -42,6 +42,8 @@ dependencies {
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
 
+    implementation "androidx.cardview:cardview:1.0.0"
+
     // viewModel KTX
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
 
