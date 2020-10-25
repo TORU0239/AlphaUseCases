@@ -15,6 +15,6 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
         Log.e(SplashActivity::class.java.simpleName, "create()")
 
-        Handler(Looper.getMainLooper()).postDelayed({startActivity(Intent(this@SplashActivity, MainActivity::class.java))}, 2000)
+        Handler(Looper.getMainLooper()).postDelayed({startActivity(Intent(this@SplashActivity, BreakthroughActivity::class.java))}, 1000)
     }
 }
