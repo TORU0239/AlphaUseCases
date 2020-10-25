@@ -14,4 +14,13 @@
         android:gravity="center"
         android:text="@string/hello_blank_fragment" />
 
+    <Button
+        android:id="@+id/btnSkip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Skip!!"
+        android:layout_gravity="bottom|end"/>
+
 </FrameLayout>
