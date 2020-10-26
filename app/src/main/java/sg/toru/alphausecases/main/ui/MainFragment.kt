@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navOptions
 import androidx.recyclerview.widget.PagerSnapHelper
 import dagger.hilt.android.AndroidEntryPoint
 import sg.toru.alphausecases.R
@@ -57,7 +58,15 @@ class MainFragment : Fragment() {
         })
 
         binding.imgMainSetting.setOnClickListener {
-            findNavController().navigate(R.id.action_mainFragment_to_accountFragment, null)
+            val options = navOptions {
+                anim {
+                    enter = R.anim.slide_in_right // when proceeding to destination, destination runs this
+                    exit = R.anim.slide_out_left // at same case, departure runs this
+                    popEnter = R.anim.slide_in_left // when coming back, departure runs this
+                    popExit = R.anim.slide_out_right // at same case, destination runs this
+                }
+            }
+            findNavController().navigate(R.id.action_mainFragment_to_accountFragment, null, options)
         }
 
         binding.imgGoToWalletDetail.setOnClickListener {
