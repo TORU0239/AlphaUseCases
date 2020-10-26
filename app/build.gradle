@@ -75,6 +75,11 @@ dependencies {
     // datastore
     implementation "androidx.datastore:datastore-preferences:1.0.0-alpha02"
 
+    // navigation
+    //Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:2.3.1"
+    implementation "androidx.navigation:navigation-ui-ktx:2.3.1"
+
 
     // retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'

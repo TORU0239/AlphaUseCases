@@ -13,19 +13,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AlphaUseCases">
-
+        <activity android:name=".main.ui.MainNavActivity"></activity>
         <activity
             android:name=".splash.ui.SplashActivity"
             android:theme="@style/Theme.AlphaUseCases.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".splash.ui.BreakthroughActivity"
-            android:theme="@style/Theme.AlphaUseCases.Main.NoActionBar"/>
-
+        <activity
+            android:name=".splash.ui.BreakthroughActivity"
+            android:theme="@style/Theme.AlphaUseCases.Main.NoActionBar" />
         <activity
             android:name=".main.ui.MainActivity"
             android:theme="@style/Theme.AlphaUseCases.Main.NoActionBar" />
