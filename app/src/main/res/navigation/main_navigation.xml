@@ -8,6 +8,23 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="sg.toru.alphausecases.main.ui.MainFragment"
-        tools:layout="@layout/fragment_main"/>
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_transactionDetailFragment"
+            app:destination="@id/transactionDetailFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="sg.toru.alphausecases.main.ui.AccountFragment"
+        tools:layout="@layout/fragment_account"/>
+
+    <fragment
+        android:id="@+id/transactionDetailFragment"
+        android:name="sg.toru.alphausecases.main.ui.TransactionDetailFragment"
+        tools:layout="@layout/fragment_transaction_detail"/>
 
 </navigation>
