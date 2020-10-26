@@ -15,6 +15,10 @@
         <action
             android:id="@+id/action_mainFragment_to_accountFragment"
             app:destination="@id/accountFragment" />
+
+        <action
+            android:id="@+id/action_mainFragment_to_walletDetailFragment"
+            app:destination="@id/walletDetailFragment"/>
     </fragment>
 
     <fragment
@@ -32,5 +36,10 @@
         android:id="@+id/transactionDetailFragment"
         android:name="sg.toru.alphausecases.main.ui.TransactionDetailFragment"
         tools:layout="@layout/fragment_transaction_detail"/>
+
+    <fragment
+        android:id="@+id/walletDetailFragment"
+        android:name="sg.toru.alphausecases.main.ui.WalletDetailFragment"
+        tools:layout="@layout/fragment_wallet_detail"/>
 
 </navigation>

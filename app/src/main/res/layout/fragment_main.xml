@@ -343,6 +343,21 @@
                 app:layout_constraintTop_toBottomOf="@id/viewDivDeal"
                 app:layout_constraintStart_toStartOf="@id/guidelineStart14dp"/>
 
+            <TextView
+                android:id="@+id/txtGoToTransactionList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                android:layout_marginTop="6dp"
+                android:includeFontPadding="false"
+                android:text="See All"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="@color/purple_500"
+                app:layout_constraintTop_toBottomOf="@id/viewDivDeal"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd14dp"
+                app:layout_constraintBottom_toBottomOf="@id/txtRecentTransaction"/>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rcvMainTransaction"
                 android:layout_width="0dp"

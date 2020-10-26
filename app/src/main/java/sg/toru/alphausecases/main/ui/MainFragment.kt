@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -39,6 +42,7 @@ class MainFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         _binding = FragmentMainBinding.inflate(inflater, container, false)
 
         PagerSnapHelper().attachToRecyclerView(binding.rcvMainWallet)
@@ -73,7 +77,28 @@ class MainFragment : Fragment() {
         }
 
         binding.imgGoToWalletDetail.setOnClickListener {
-            findNavController().navigate(R.id.action_mainFragment_to_transactionDetailFragment, null)
+            val options = navOptions {
+                anim {
+                    enter = R.anim.slide_in_right // when proceeding to destination, destination runs this
+                    exit = R.anim.slide_out_left // at same case, departure runs this
+                    popEnter = R.anim.slide_in_left // when coming back, departure runs this
+                    popExit = R.anim.slide_out_right // at same case, destination runs this
+                }
+            }
+
+            findNavController().navigate(R.id.action_mainFragment_to_walletDetailFragment, null, options)
+        }
+
+        binding.txtGoToTransactionList.setOnClickListener {
+            val options = navOptions {
+                anim {
+                    enter = R.anim.slide_in_right // when proceeding to destination, destination runs this
+                    exit = R.anim.slide_out_left // at same case, departure runs this
+                    popEnter = R.anim.slide_in_left // when coming back, departure runs this
+                    popExit = R.anim.slide_out_right // at same case, destination runs this
+                }
+            }
+            findNavController().navigate(R.id.action_mainFragment_to_transactionDetailFragment, null, options)
         }
     }
 
