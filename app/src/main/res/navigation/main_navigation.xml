@@ -20,7 +20,13 @@
     <fragment
         android:id="@+id/accountFragment"
         android:name="sg.toru.alphausecases.main.ui.AccountFragment"
-        tools:layout="@layout/fragment_account"/>
+        tools:layout="@layout/fragment_account">
+        <argument
+            android:name="accountTest"
+            android:defaultValue="-1"
+            app:argType="integer"/>
+    </fragment>
+
 
     <fragment
         android:id="@+id/transactionDetailFragment"

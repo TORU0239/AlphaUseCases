@@ -66,7 +66,10 @@ class MainFragment : Fragment() {
                     popExit = R.anim.slide_out_right // at same case, destination runs this
                 }
             }
-            findNavController().navigate(R.id.action_mainFragment_to_accountFragment, null, options)
+            val nextArg = 1024
+            MainFragmentDirections.actionMainFragmentToAccountFragment(nextArg)
+            findNavController().navigate(MainFragmentDirections.actionMainFragmentToAccountFragment(nextArg), options)
+//            findNavController().navigate(R.id.action_mainFragment_to_accountFragment, null, options)
         }
 
         binding.imgGoToWalletDetail.setOnClickListener {

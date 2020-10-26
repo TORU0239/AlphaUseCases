@@ -16,17 +16,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Log.e(MainActivity::class.java.simpleName, "create()")
-
-//        supportFragmentManager.beginTransaction().replace(
-//            R.id.mainFragmentContainer,
-//            MainFragment.newInstance()
-//        ).commit()
-
         initNavigation()
     }
 
     private fun initNavigation() {
         val host:NavHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentMainNavHost) as NavHostFragment? ?: return
-        val navController = host.navController
     }
 }
