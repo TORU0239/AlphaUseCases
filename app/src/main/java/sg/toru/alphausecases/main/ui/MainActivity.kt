@@ -3,6 +3,8 @@ package sg.toru.alphausecases.main.ui
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavHost
+import androidx.navigation.fragment.NavHostFragment
 import dagger.hilt.android.AndroidEntryPoint
 import sg.toru.alphausecases.R
 
@@ -15,9 +17,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         Log.e(MainActivity::class.java.simpleName, "create()")
 
-        supportFragmentManager.beginTransaction().replace(
-            R.id.mainFragmentContainer,
-            MainFragment.newInstance()
-        ).commit()
+//        supportFragmentManager.beginTransaction().replace(
+//            R.id.mainFragmentContainer,
+//            MainFragment.newInstance()
+//        ).commit()
+
+        initNavigation()
+    }
+
+    private fun initNavigation() {
+        val host:NavHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentMainNavHost) as NavHostFragment? ?: return
+        val navController = host.navController
     }
 }

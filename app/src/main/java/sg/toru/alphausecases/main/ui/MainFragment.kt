@@ -7,8 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.PagerSnapHelper
 import dagger.hilt.android.AndroidEntryPoint
+import sg.toru.alphausecases.R
 import sg.toru.alphausecases.databinding.FragmentMainBinding
 import sg.toru.alphausecases.main.model.InfoNearby
 import sg.toru.alphausecases.main.model.TransactionHistory
@@ -53,6 +55,14 @@ class MainFragment : Fragment() {
             infoNearAdapter.submitList(wallet.nearInfo)
             transactionAdapter.submitList(wallet.transactionHistory)
         })
+
+        binding.imgMainSetting.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_accountFragment, null)
+        }
+
+        binding.imgGoToWalletDetail.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_transactionDetailFragment, null)
+        }
     }
 
     override fun onDestroyView() {
@@ -60,8 +70,8 @@ class MainFragment : Fragment() {
         _binding = null
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance() = MainFragment()
-    }
+//    companion object {
+//        @JvmStatic
+//        fun newInstance() = MainFragment()
+//    }
 }
