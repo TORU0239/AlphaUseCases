@@ -1,40 +1,20 @@
 package sg.toru.alphausecases.main.ui
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import sg.toru.alphausecases.R
+import sg.toru.alphausecases.databinding.FragmentWalletDetailBinding
+import sg.toru.alphausecases.main.model.TransactionHistory
 
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [WalletDetailFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class WalletDetailFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+    private var _binding:FragmentWalletDetailBinding? = null
+    private val binding get() = _binding!!
 
-//        activity?.window?.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-//        activity?.window?.statusBarColor = ContextCompat.getColor(requireContext(), R.color.teal_700)
+    private val transactionAdapter: TransactionAdapter by lazy {
+        TransactionAdapter()
     }
 
     override fun onCreateView(
@@ -42,26 +22,21 @@ class WalletDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_wallet_detail, container, false)
+        _binding = FragmentWalletDetailBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment WalletDetailFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            WalletDetailFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.rcvWalletTransactions.adapter = transactionAdapter
+        transactionAdapter.submitList(createDummyTransactionData())
     }
+
+    private fun createDummyTransactionData() = listOf(
+        TransactionHistory(0,"Payment", "FoodPanda Singapore",25.0F),
+        TransactionHistory(1,"Payment", "Habitat Coffee",10.0F),
+        TransactionHistory(2,"Top Up", "Using Visa 1234",50.0F),
+        TransactionHistory(3,"Payment", "YumCha Chinatown",30.50F),
+        TransactionHistory(4,"Payment", "Char Kway Teow",5.0F),
+    )
 }
