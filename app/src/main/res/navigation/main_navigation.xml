@@ -40,6 +40,11 @@
     <fragment
         android:id="@+id/walletDetailFragment"
         android:name="sg.toru.alphausecases.main.ui.WalletDetailFragment"
-        tools:layout="@layout/fragment_wallet_detail"/>
+        tools:layout="@layout/fragment_wallet_detail">
+
+        <action
+            android:id="@+id/action_walletdetail_to_transactiondetail"
+            app:destination="@id/transactionDetailFragment"/>
+    </fragment>
 
 </navigation>

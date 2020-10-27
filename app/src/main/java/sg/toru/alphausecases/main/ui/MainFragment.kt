@@ -1,6 +1,7 @@
 package sg.toru.alphausecases.main.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,8 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import androidx.recyclerview.widget.PagerSnapHelper
+import com.google.android.play.core.review.ReviewManagerFactory
+import com.google.android.play.core.review.testing.FakeReviewManager
 import dagger.hilt.android.AndroidEntryPoint
 import sg.toru.alphausecases.R
 import sg.toru.alphausecases.databinding.FragmentMainBinding
@@ -73,7 +76,6 @@ class MainFragment : Fragment() {
             val nextArg = 1024
             MainFragmentDirections.actionMainFragmentToAccountFragment(nextArg)
             findNavController().navigate(MainFragmentDirections.actionMainFragmentToAccountFragment(nextArg), options)
-//            findNavController().navigate(R.id.action_mainFragment_to_accountFragment, null, options)
         }
 
         binding.imgGoToWalletDetail.setOnClickListener {
